@@ -26,7 +26,7 @@ statement_type
         | statement_CMPR parameter_count params then_clause else_clause
         | statement_DVAR parameter_count params
         | statement_EXIT parameter_count
-        | statement_GOTO parameter_count param
+        | statement_GOTO parameter_count params
         | statement_LABL parameter_count params
         | statement_NOOP parameter_count
         | statement_PPUP parameter_count params
@@ -89,7 +89,7 @@ parameter_count
         : NUMPARAMS EQUALS integer_value
         ;
 reference_count
-        : REFCOUNT EQUALS integer_value
+        : REFCOUNT EQUALS sign? integer_value
         ;
 integer_value
         : NUMBER_INT
@@ -102,4 +102,8 @@ else_clause
         ;
 identifier
         : IDENTIFIER
+        ;
+sign
+        : PLUS
+        | MINUS
         ;

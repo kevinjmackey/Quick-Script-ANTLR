@@ -23,6 +23,9 @@ INFO
 LABL
    : L A B L
    ;
+MINUS
+   : '-'
+   ;
 NOOP
    : N O O P
    ;
@@ -34,6 +37,9 @@ NUMSTMTS
    ;
 PARAM
    : P A R A M NUMBER_INT EQUALS
+   ;
+PLUS
+   : '+'
    ;
 PRMT
    : P R M T
