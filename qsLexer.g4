@@ -71,6 +71,9 @@ SVAR
 VERSION
    : V E R S I O N
    ;
+WINP
+   :W I N P
+   ;
 WTXT
    : W T X T
    ;

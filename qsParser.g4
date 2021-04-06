@@ -35,6 +35,7 @@ statement_type
         | statement_RVAR parameter_count params
         | statement_SNDK parameter_count params
         | statement_SVAR parameter_count params
+        | statement_WINP parameter_count params then_clause else_clause
         | statement_WTXT parameter_count params then_clause else_clause
         ;
 statement_CMPR
@@ -75,6 +76,9 @@ statement_SNDK
         ;
 statement_SVAR
         : STMTID EQUALS SVAR
+        ;
+statement_WINP
+        : STMTID EQUALS WINP
         ;
 statement_WTXT
         : STMTID EQUALS WTXT
