@@ -1,10 +1,16 @@
 lexer grammar qsLexer;
 
+COPY
+   :C O P Y
+   ;
 CMPR
    : C M P R
    ;
 CRSR
    : C R S R
+   ;
+DESCRIPTION
+   : D E S C R I P T I O N
    ;
 DVAR
    : D V A R
@@ -93,8 +99,11 @@ STRING_LITERAL
    : '""' (~["\\\r\n] | ESCAPE_SEQUENCE)* '""'
    ;
 NUMBER_INT
-	: DEC_DIGIT+
-	;
+   : DEC_DIGIT+
+   ;
+DESCRIPTION_INFO
+   : DESCRIPTION EQUALS ~[\r\n]*
+   ;
 IDENTIFIER
    : ('a' .. 'z' | 'A' .. 'Z') ('a' .. 'z' | 'A' .. 'Z' | '0' .. '9')*
    ;

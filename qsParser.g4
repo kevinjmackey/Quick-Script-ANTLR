@@ -7,13 +7,16 @@ qscript_file
         : info_statement statements EOF
         ;
 info_statement
-        : LBRACK INFO RBRACK version_clause num_stmts_clause
+        : LBRACK INFO RBRACK version_clause description_clause? num_stmts_clause
         ;
 version_clause
         : VERSION EQUALS integer_value
         ;
 num_stmts_clause
         : NUMSTMTS EQUALS integer_value
+        ;
+description_clause
+        : DESCRIPTION_INFO
         ;
 statements
         : statement+
@@ -23,6 +26,7 @@ statement
         ;
 statement_type
         : statement_CRSR parameter_count params
+        | statement_COPY parameter_count params
         | statement_CMPR parameter_count params then_clause else_clause
         | statement_DVAR parameter_count params
         | statement_EXIT parameter_count
@@ -37,6 +41,9 @@ statement_type
         | statement_SVAR parameter_count params
         | statement_WINP parameter_count params then_clause else_clause
         | statement_WTXT parameter_count params then_clause else_clause
+        ;
+statement_COPY
+        : STMTID EQUALS COPY
         ;
 statement_CMPR
         : STMTID EQUALS CMPR
